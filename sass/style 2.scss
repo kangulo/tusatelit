@@ -1,0 +1,2148 @@
+/*
+Theme Name: Tusatelit Wordpress Theme
+Author: Kevin Angulo
+Author URI: https://www.kevinangulo.com/
+Version: 1.0.0
+Text Domain: tusatelit
+*/
+
+/***********************************
+BASE STYLES
+***********************************/
+
+// COLORS
+$white: #fff;
+$white-light: #f1f1f8;
+$black:#000;
+$dark-gray: #262431;
+$turquoise: #00c9db;
+$primary: #4633af;
+// MIXIN
+@import 'mixin';
+// BASE
+@import 'base';
+// ICON FONTS
+@import 'icon';
+
+div {
+    border:1px solid red;
+}
+
+.p-large {
+    color: $white-light;
+    font: 400 1rem/1.5rem "Open Sans", sans-serif;
+}
+
+.p-small {
+    color: $white-light;
+    font: 400 0.75rem/1.25rem "Open Sans", sans-serif;
+}
+
+.p-heading {
+    margin-bottom: 3.75rem;
+    text-align: center;
+}
+
+.li-space-lg li {
+    margin-bottom: 0.375rem;
+}
+
+.indent {
+    padding-left: 1.25rem;
+}
+
+h1 {
+    color: $white-light;
+    font: 700 2.5rem/2.875rem "Montserrat", sans-serif;
+}
+
+h2 {
+    color: $white-light;
+    font: 700 2.25rem/2.75rem "Montserrat", sans-serif;
+}
+
+h3 {
+    color: $white-light;
+    font: 700 1.75rem/2.125rem "Montserrat", sans-serif;
+}
+
+h4 {
+    color: $white-light;
+    font: 700 1.375rem/1.75rem "Montserrat", sans-serif;
+}
+
+h5 {
+    color: $white-light;
+    font: 700 1.125rem/1.625rem "Montserrat", sans-serif;
+}
+
+h6 {
+    color: $white-light;
+    font: 700 1rem/1.5rem "Montserrat", sans-serif;
+}
+
+a {
+    color: $white-light;
+    text-decoration: underline;
+    &:hover {
+        color: $white-light;
+        text-decoration: underline;
+    }
+    &.turquoise {
+        color: $turquoise;
+    }
+    &.white {
+        color: $white;
+    }
+}
+
+.testimonial-text {
+    font: italic 400 1rem/1.5rem "Open Sans", sans-serif;
+}
+
+.testimonial-author {
+    font: 700 1rem/1.5rem "Montserrat", sans-serif;
+}
+
+.btn-solid-reg {
+    display: inline-block;
+    padding: 1.1875rem 2.125rem 1.1875rem 2.125rem;
+    border: 0.125rem solid $turquoise;
+    border-radius: 2rem;
+    background-color: $turquoise;
+    color: $white;
+    font: 700 0.75rem/0 "Montserrat", sans-serif;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    &:hover {
+        background-color: transparent;
+        color: $turquoise;
+        text-decoration: none;
+    }
+}
+
+.btn-solid-lg {
+    display: inline-block;
+    padding: 1.375rem 2.625rem 1.375rem 2.625rem;
+    border: 0.125rem solid $turquoise;
+    border-radius: 2rem;
+    background-color: $turquoise;
+    color: $white;
+    font: 700 0.75rem/0 "Montserrat", sans-serif;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    &:hover {
+        background-color: transparent;
+        color: $turquoise;
+        text-decoration: none;
+    }
+    .fab {
+        margin-right: 0.5rem;
+        font-size: 1.25rem;
+        line-height: 0;
+        vertical-align: top;
+        &.fa-google-play {
+            font-size: 1rem;
+        }
+    }
+}
+
+.btn-outline-reg {
+    display: inline-block;
+    padding: 1.1875rem 2.125rem 1.1875rem 2.125rem;
+    border: 0.125rem solid $turquoise;
+    border-radius: 2rem;
+    background-color: transparent;
+    color: $turquoise;
+    font: 700 0.75rem/0 "Montserrat", sans-serif;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    &:hover {
+        background-color: $turquoise;
+        color: $white;
+        text-decoration: none;
+    }
+}
+
+.btn-outline-lg {
+    display: inline-block;
+    padding: 1.375rem 2.625rem 1.375rem 2.625rem;
+    border: 0.125rem solid $turquoise;
+    border-radius: 2rem;
+    background-color: transparent;
+    color: $turquoise;
+    font: 700 0.75rem/0 "Montserrat", sans-serif;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    &:hover {
+        background-color: $turquoise;
+        color: $white;
+        text-decoration: none;
+    }
+}
+
+.btn-outline-sm {
+    display: inline-block;
+    padding: 1rem 1.625rem 0.875rem 1.625rem;
+    border: 0.125rem solid $turquoise;
+    border-radius: 2rem;
+    background-color: transparent;
+    color: $turquoise;
+    font: 700 0.625rem/0 "Montserrat", sans-serif;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    &:hover {
+        background-color: $turquoise;
+        color: $white;
+        text-decoration: none;
+    }
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.25rem;
+    &.has-error.has-danger {
+        margin-bottom: 0.625rem;
+        .help-block.with-errors ul {
+            margin-top: 0.375rem;
+        }
+    }
+}
+
+.label-control {
+    position: absolute;
+    top: 0.87rem;
+    left: 1.375rem;
+    color: $white-light;
+    opacity: 1;
+    font: 400 0.875rem/1.375rem "Open Sans", sans-serif;
+    cursor: text;
+    transition: all 0.2s ease;
+}
+
+/* IE10+ hack to solve lower label text position compared to the rest of the browsers */
+
+@media screen and (-ms-high-contrast: active),
+screen and (-ms-high-contrast: none) {
+    .label-control {
+        top: 0.9375rem;
+    }
+}
+
+.form-control-input {
+    &:focus+.label-control,
+    &.notEmpty+.label-control {
+        top: 0.125rem;
+        opacity: 1;
+        font-size: 0.75rem;
+        font-weight: 700;
+    }
+}
+
+.form-control-textarea {
+    &:focus+.label-control,
+    &.notEmpty+.label-control {
+        top: 0.125rem;
+        opacity: 1;
+        font-size: 0.75rem;
+        font-weight: 700;
+    }
+}
+
+.form-control-input {
+    display: block;
+    /* needed for proper display of the label in Firefox, IE, Edge */
+    width: 100%;
+    padding-top: 1.0625rem;
+    padding-bottom: 0.0625rem;
+    padding-left: 1.3125rem;
+    border: 1px solid #9791ae;
+    border-radius: 0.25rem;
+    background-color: #413d52;
+    color: $white-light;
+    font: 400 0.875rem/1.875rem "Open Sans", sans-serif;
+    transition: all 0.2s ease;
+    -webkit-appearance: none;
+    /* removes inner shadow on form inputs on ios safari */
+}
+
+.form-control-select {
+    display: block;
+    /* needed for proper display of the label in Firefox, IE, Edge */
+    width: 100%;
+    padding-top: 1.0625rem;
+    padding-bottom: 0.0625rem;
+    padding-left: 1.3125rem;
+    border: 1px solid #9791ae;
+    border-radius: 0.25rem;
+    background-color: #413d52;
+    color: $white-light;
+    font: 400 0.875rem/1.875rem "Open Sans", sans-serif;
+    transition: all 0.2s ease;
+    -webkit-appearance: none;
+    /* removes inner shadow on form inputs on ios safari */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    height: 3rem;
+}
+
+/* IE10+ hack to solve lower label text position compared to the rest of the browsers */
+
+@media screen and (-ms-high-contrast: active),
+screen and (-ms-high-contrast: none) {
+    .form-control-input {
+        padding-top: 1.25rem;
+        padding-bottom: 0.75rem;
+        line-height: 1.75rem;
+    }
+    .form-control-select {
+        padding-top: 0.875rem;
+        padding-bottom: 0.75rem;
+        height: 3.125rem;
+        line-height: 2.125rem;
+    }
+}
+
+select {
+    /* you should keep these first rules in place to maintain cross-browser behavior */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    background-image: url('images/down-arrow.png');
+    background-position: 96% 50%;
+    background-repeat: no-repeat;
+    outline: none;
+    &::-ms-expand {
+        display: none;
+        /* removes the ugly default down arrow on select form field in IE11 */
+    }
+}
+
+.form-control-textarea {
+    display: block;
+    /* used to eliminate a bottom gap difference between Chrome and IE/FF */
+    width: 100%;
+    height: 8rem;
+    /* used instead of html rows to normalize height between Chrome and IE/FF */
+    padding-top: 1.25rem;
+    padding-left: 1.3125rem;
+    border: 1px solid #9791ae;
+    border-radius: 0.25rem;
+    background-color: #413d52;
+    color: $white-light;
+    font: 400 0.875rem/1.75rem "Open Sans", sans-serif;
+    transition: all 0.2s ease;
+}
+
+.form-control-input:focus,
+.form-control-select:focus,
+.form-control-textarea:focus {
+    border: 1px solid $white-light;
+    outline: none;
+    /* Removes blue border on focus */
+}
+
+.form-control-input:hover,
+.form-control-select:hover,
+.form-control-textarea:hover {
+    border: 1px solid $white-light;
+}
+
+.checkbox {
+    font: 400 0.75rem/1.25rem "Open Sans", sans-serif;
+}
+
+input[type='checkbox'] {
+    vertical-align: -15%;
+    margin-right: 0.375rem;
+}
+
+/* IE10+ hack to raise checkbox field position compared to the rest of the browsers */
+
+@media screen and (-ms-high-contrast: active),
+screen and (-ms-high-contrast: none) {
+    input[type='checkbox'] {
+        vertical-align: -9%;
+    }
+}
+
+.form-control-submit-button {
+    display: inline-block;
+    width: 100%;
+    height: 3.125rem;
+    border: 1px solid $turquoise;
+    border-radius: 1.5rem;
+    background-color: $turquoise;
+    color: $white;
+    font: 700 0.75rem/1.75rem "Montserrat", sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    &:hover {
+        background-color: transparent;
+        color: $turquoise;
+    }
+}
+
+/* Form Success And Error Message Formatting */
+
+#cmsgSubmit.h3.text-center.tada.animated,
+#pmsgSubmit.h3.text-center.tada.animated,
+#cmsgSubmit.h3.text-center,
+#pmsgSubmit.h3.text-center {
+    display: block;
+    margin-bottom: 0;
+    color: $white-light;
+    font: 400 1.125rem/1rem "Open Sans", sans-serif;
+}
+
+.help-block.with-errors {
+    .list-unstyled {
+        color: $white-light;
+        font-size: 0.75rem;
+        line-height: 1.125rem;
+        text-align: left;
+    }
+    ul {
+        margin-bottom: 0;
+    }
+}
+
+/* end of form success and error message formatting */
+
+/* Form Success And Error Message Animation - Animate.css */
+
+@-webkit-keyframes tada {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    10%,
+    20% {
+        -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+        -ms-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    }
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+    40%,
+    60%,
+    80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes tada {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+    10%,
+    20% {
+        -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+        -ms-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    }
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+    40%,
+    60%,
+    80% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        -ms-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.tada {
+    -webkit-animation-name: tada;
+    animation-name: tada;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+/* end of form success and error message animation - Animate.css */
+
+/* Fade-move Animation For Lightbox - Magnific Popup */
+
+/* at start */
+
+.my-mfp-slide-bottom {
+    .zoom-anim-dialog {
+        opacity: 0;
+        transition: all 0.2s ease-out;
+        -webkit-transform: translateY(-1.25rem) perspective(37.5rem) rotateX(10deg);
+        -ms-transform: translateY(-1.25rem) perspective(37.5rem) rotateX(10deg);
+        transform: translateY(-1.25rem) perspective(37.5rem) rotateX(10deg);
+    }
+    &.mfp-ready .zoom-anim-dialog {
+        opacity: 1;
+        -webkit-transform: translateY(0) perspective(37.5rem) rotateX(0);
+        -ms-transform: translateY(0) perspective(37.5rem) rotateX(0);
+        transform: translateY(0) perspective(37.5rem) rotateX(0);
+    }
+    &.mfp-removing .zoom-anim-dialog {
+        opacity: 0;
+        -webkit-transform: translateY(-0.625rem) perspective(37.5rem) rotateX(10deg);
+        -ms-transform: translateY(-0.625rem) perspective(37.5rem) rotateX(10deg);
+        transform: translateY(-0.625rem) perspective(37.5rem) rotateX(10deg);
+    }
+    &.mfp-bg {
+        opacity: 0;
+        transition: opacity 0.2s ease-out;
+    }
+    &.mfp-ready.mfp-bg {
+        opacity: 0.8;
+    }
+    &.mfp-removing.mfp-bg {
+        opacity: 0;
+    }
+}
+
+/* animate in */
+
+/* animate out */
+
+/* dark overlay, start state */
+
+/* animate in */
+
+/* animate out */
+
+/* end of fade-move animation for lightbox - magnific popup */
+
+/* Fade Animation For Image Slider - Magnific Popup */
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    -webkit-animation: fadeIn 0.6s;
+    animation: fadeIn 0.6s;
+}
+
+@-webkit-keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fadeOut {
+    -webkit-animation: fadeOut 0.8s;
+    animation: fadeOut 0.8s;
+}
+
+/* end of fade animation for image slider - magnific popup */
+
+/*************************/
+
+/*     02. Preloader     */
+
+/*************************/
+
+.spinner-wrapper {
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $dark-gray;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    /* centers the loading animation vertically one the screen */
+    left: 50%;
+    /* centers the loading animation horizontally one the screen */
+    width: 3.75rem;
+    height: 1.25rem;
+    margin: -0.625rem 0 0 -1.875rem;
+    /* is width and height divided by two */
+    text-align: center;
+    >div {
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 100%;
+        background-color: $white;
+        -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+        animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    }
+    .bounce1 {
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+    }
+    .bounce2 {
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+    }
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+    }
+}
+
+@keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+/**************************/
+
+/*     03. Navigation     */
+
+/**************************/
+
+.navbar-custom {
+    background-color: $primary;
+    box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
+    font: 700 0.75rem/2rem "Montserrat", sans-serif;
+    transition: all 0.2s ease;
+    .navbar-brand {
+        &.logo-image img {
+            /*width: 170px;*/
+            height: 54px;
+            margin-bottom: 1px;
+            -webkit-backface-visibility: hidden;
+        }
+        &.logo-text {
+            font: 700 2.375rem/1.5rem "Montserrat", sans-serif;
+            color: $white;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+    }
+    .navbar-nav {
+        margin-top: 0.75rem;
+    }
+    .nav-item .nav-link {
+        padding: 0 0.75rem 0 0.75rem;
+        color: $white;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        &:hover,
+        &.active {
+            color: $turquoise;
+        }
+    }
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+        /* this makes the dropdown menu stay open while hovering it */
+        min-width: auto;
+        animation: fadeDropdown 0.2s;
+        /* required for the fade animation */
+    }
+    .dropdown-toggle:focus {
+        /* removes dropdown outline on focus  */
+        outline: 0;
+    }
+    .dropdown-menu {
+        margin-top: 0;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: $primary;
+    }
+    .dropdown-item {
+        color: $white;
+        text-decoration: none;
+        &:hover {
+            background-color: $primary;
+        }
+        .item-text {
+            font: 700 0.75rem/1.5rem "Montserrat", sans-serif;
+        }
+        &:hover .item-text {
+            color: $turquoise;
+        }
+    }
+    .dropdown-items-divide-hr {
+        width: 100%;
+        height: 1px;
+        margin: 0.25rem auto 0.25rem auto;
+        border: none;
+        background-color: #b5bcc4;
+        opacity: 0.2;
+    }
+    .social-icons {
+        display: none;
+    }
+    .navbar-toggler {
+        border: none;
+        color: $white;
+        font-size: 2rem;
+    }
+    button {
+        &[aria-expanded='false'] .navbar-toggler-awesome.fas {
+            &.fa-times {
+                display: none;
+            }
+            &.fa-bars {
+                display: inline-block;
+            }
+        }
+        &[aria-expanded='true'] .navbar-toggler-awesome.fas {
+            &.fa-bars {
+                display: none;
+            }
+            &.fa-times {
+                display: inline-block;
+                margin-right: 0.125rem;
+            }
+        }
+    }
+    #search{
+        display:block;
+        text-align:center;
+    }
+}
+
+/* Dropdown Menu */
+
+@keyframes fadeDropdown {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* end of dropdown menu */
+
+/*********************/
+
+/*    04. Header     */
+
+/*********************/
+
+.header {
+    background: linear-gradient(to bottom right, rgba(72, 72, 212, 0), rgba(241, 104, 104, 0)), url('images/header-background.jpg') center center no-repeat;
+    background-size: cover;
+    .header-content {
+        padding-top: 8.5rem;
+        padding-bottom: 7rem;
+        text-align: center;
+    }
+    .text-container {
+        margin-bottom: 3rem;
+    }
+    h1 {
+        margin-bottom: 1rem;
+    }
+    #js-rotating {
+        color: $turquoise;
+    }
+    .p-large {
+        margin-bottom: 2rem;
+    }
+    .btn-solid-lg {
+        margin-right: 0.5rem;
+        margin-bottom: 1.25rem;
+    }
+}
+
+/****************************/
+
+/*     05. Testimonials     */
+
+/****************************/
+
+.slider-1 {
+    padding-top: 6.875rem;
+    padding-bottom: 6.375rem;
+    background-color: $dark-gray;
+    .slider-container {
+        position: relative;
+    }
+    .swiper-container {
+        position: static;
+        width: 90%;
+        text-align: center;
+    }
+    .swiper-button-prev:focus,
+    .swiper-button-next:focus {
+        /* even if you can't see it chrome you can see it on mobile device */
+        outline: none;
+    }
+    .swiper-button-prev {
+        left: -0.5rem;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23f1f1f8'%2F%3E%3C%2Fsvg%3E");
+        background-size: 1.125rem 1.75rem;
+    }
+    .swiper-button-next {
+        right: -0.5rem;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23f1f1f8'%2F%3E%3C%2Fsvg%3E");
+        background-size: 1.125rem 1.75rem;
+    }
+    .card {
+        position: relative;
+        border: none;
+        background-color: transparent;
+    }
+    .card-image {
+        width: 6rem;
+        height: 6rem;
+        margin-right: auto;
+        margin-bottom: 0.25rem;
+        margin-left: auto;
+        border-radius: 50%;
+    }
+    .card-body {
+        padding-bottom: 0;
+    }
+    .testimonial-author {
+        margin-bottom: 0;
+    }
+}
+
+/************************/
+
+/*     05. Features     */
+
+/************************/
+
+.tabs {
+    padding-top: 6.5rem;
+    padding-bottom: 4.25rem;
+    background-color: $dark-gray;
+    h2 {
+        margin-bottom: 1.125rem;
+        text-align: center;
+    }
+    .p-heading {
+        margin-bottom: 3.125rem;
+    }
+    .nav-tabs {
+        margin-right: auto;
+        margin-bottom: 2.5rem;
+        margin-left: auto;
+        justify-content: center;
+        border-bottom: none;
+    }
+    .nav-link {
+        margin-bottom: 1rem;
+        padding: 0.5rem 1.375rem 0.25rem 1.375rem;
+        border: none;
+        border-bottom: 0.1875rem solid $white-light;
+        border-radius: 0;
+        color: $white-light;
+        font: 700 1rem/1.75rem "Montserrat", sans-serif;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        &.active,
+        &:hover {
+            border-bottom: 0.1875rem solid $turquoise;
+            background-color: transparent;
+            color: $turquoise;
+        }
+        .fas {
+            margin-right: 0.375rem;
+            font-size: 1rem;
+        }
+    }
+    .tab-content {
+        width: 100%;
+        /* for proper display in IE11 */
+    }
+    .card {
+        border: none;
+        background: transparent;
+    }
+    .card-body {
+        padding: 1rem 0 1.25rem 0;
+    }
+    .card-title {
+        margin-bottom: 0.5rem;
+    }
+    .card .card-icon {
+        display: inline-block;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        background-color: $turquoise;
+        text-align: center;
+        vertical-align: top;
+        .fas,
+        .far {
+            color: $white;
+            font-size: 1.75rem;
+            line-height: 3.5rem;
+        }
+    }
+    #tab-1 {
+        .card.left-pane {
+            .text-wrapper {
+                display: inline-block;
+                width: 75%;
+            }
+            .card-icon {
+                float: left;
+                margin-right: 1rem;
+            }
+        }
+        img {
+            display: block;
+            margin: 2rem auto 3rem auto;
+        }
+        .card.right-pane {
+            .text-wrapper {
+                display: inline-block;
+                width: 75%;
+            }
+            .card-icon {
+                margin-right: 1rem;
+            }
+        }
+    }
+    #tab-2 {
+        img {
+            display: block;
+            margin: 0 auto 2rem auto;
+        }
+        .text-area {
+            margin-top: 1.5rem;
+        }
+        h3 {
+            margin-bottom: 0.75rem;
+        }
+        .icon-cards-area {
+            margin-top: 2.5rem;
+            .card {
+                width: 100%;
+                /* for proper display in IE11 */
+            }
+        }
+    }
+    #tab-3 {
+        .icon-cards-area .card {
+            width: 100%;
+            /* for proper display in IE11 */
+        }
+        .text-area {
+            margin-top: 0.75rem;
+            margin-bottom: 4rem;
+        }
+        h3 {
+            margin-bottom: 0.75rem;
+        }
+        img {
+            margin: 0 auto 3rem auto;
+        }
+    }
+    #tab-4 {
+        img {
+            display: block;
+            margin: 0 auto 2rem auto;
+        }
+        .text-area {
+            margin-top: 1.5rem;
+        }
+        h3 {
+            margin-bottom: 0.75rem;
+        }
+        .icon-cards-area {
+            margin-top: 2.5rem;
+            .card {
+                width: 100%;
+                /* for proper display in IE11 */
+            }
+        }
+    }
+}
+
+/*********************/
+
+/* QUes es */
+
+/*********************/
+
+.objetivos {
+    padding-top: 6.375rem;
+    background: url('images/video-background.jpg') center center no-repeat;
+    background-size: cover;
+    .card {
+        &.center-pane {
+            background-color: transparent;
+            text-align: center;
+            border: none;
+        }
+        .card-icon {
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 50%;
+            background-color: $turquoise;
+            text-align: center;
+            vertical-align: top;
+            margin: 0 auto;
+            i {
+                font-size: 2.25rem;
+                line-height: 4.5rem;
+            }
+        }
+        &.center-pane .card-icon {
+            margin-bottom: 1rem;
+        }
+    }
+    h2 {
+        margin-bottom: 1.125rem;
+        text-align: center;
+    }
+    .p-heading {
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+    .image-container img {
+        border-radius: 0.375rem;
+    }
+    .video-wrapper {
+        position: relative;
+    }
+    .video-play-button {
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        left: 50%;
+        display: block;
+        box-sizing: content-box;
+        width: 2rem;
+        height: 2.75rem;
+        padding: 1.125rem 1.25rem 1.125rem 1.75rem;
+        border-radius: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        &:before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            display: block;
+            width: 4.75rem;
+            height: 4.75rem;
+            border-radius: 50%;
+            background: $turquoise;
+            animation: pulse-border 1500ms ease-out infinite;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            display: block;
+            width: 4.375rem;
+            height: 4.375rem;
+            border-radius: 50%;
+            background: #4eaaff;
+            transition: all 200ms;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+        span {
+            position: relative;
+            display: block;
+            z-index: 3;
+            top: 0.375rem;
+            left: 0.25rem;
+            width: 0;
+            height: 0;
+            border-left: 1.625rem solid $white;
+            border-top: 1rem solid transparent;
+            border-bottom: 1rem solid transparent;
+        }
+    }
+}
+
+/* Video Play Button */
+
+@keyframes pulse-border {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/*********************/
+
+/*     06. Video     */
+
+/*********************/
+
+.basic-1 {
+    padding-top: 6.375rem;
+    padding-bottom: 6.875rem;
+    background: url('images/video-background.jpg') center center no-repeat;
+    background-size: cover;
+    h2 {
+        margin-bottom: 1.125rem;
+        text-align: center;
+    }
+    .p-heading {
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+    .image-container img {
+        border-radius: 0.375rem;
+    }
+    .video-wrapper {
+        position: relative;
+    }
+    .video-play-button {
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        left: 50%;
+        display: block;
+        box-sizing: content-box;
+        width: 2rem;
+        height: 2.75rem;
+        padding: 1.125rem 1.25rem 1.125rem 1.75rem;
+        border-radius: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        &:before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            display: block;
+            width: 4.75rem;
+            height: 4.75rem;
+            border-radius: 50%;
+            background: #4eaaff;
+            animation: pulse-border 1500ms ease-out infinite;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            display: block;
+            width: 4.375rem;
+            height: 4.375rem;
+            border-radius: 50%;
+            background: #4eaaff;
+            transition: all 200ms;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+        }
+        span {
+            position: relative;
+            display: block;
+            z-index: 3;
+            top: 0.375rem;
+            left: 0.25rem;
+            width: 0;
+            height: 0;
+            border-left: 1.625rem solid $white;
+            border-top: 1rem solid transparent;
+            border-bottom: 1rem solid transparent;
+        }
+    }
+}
+
+/* Video Play Button */
+
+@keyframes pulse-border {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* end of video play button */
+
+/*************************/
+
+/*     07. Details 1     */
+
+/*************************/
+
+.basic-2 {
+    padding-top: 8rem;
+    padding-bottom: 3.5rem;
+    background-color: $dark-gray;
+    img {
+        margin-bottom: 3.5rem;
+    }
+    h3 {
+        margin-bottom: 1.125rem;
+    }
+    .btn-solid-reg {
+        margin-top: 0.5rem;
+    }
+}
+
+/*************************/
+
+/*     08. Details 2     */
+
+/*************************/
+
+.basic-3 {
+    padding-top: 3.5rem;
+    padding-bottom: 7.25rem;
+    background-color: $dark-gray;
+    .text-container {
+        margin-bottom: 3.5rem;
+    }
+    h3 {
+        margin-bottom: 1.125rem;
+    }
+    .btn-solid-reg {
+        margin-top: 0.5rem;
+    }
+}
+
+/**********************************/
+
+/*     09. Details Lightboxes     */
+
+/**********************************/
+
+.lightbox-basic {
+    position: relative;
+    max-width: 46.875rem;
+    margin: 2.5rem auto;
+    padding: 3rem 1rem;
+    border-radius: 0.25rem;
+    background-color: $dark-gray;
+    text-align: left;
+    img {
+        display: block;
+        margin-right: auto;
+        margin-bottom: 3rem;
+        margin-left: auto;
+    }
+    h3 {
+        margin-bottom: 0.625rem;
+    }
+    hr {
+        width: 3.75rem;
+        height: 0.125rem;
+        margin-top: 0.125rem;
+        margin-bottom: 1.125rem;
+        margin-left: 0;
+        border: 0;
+        background-color: $turquoise;
+        text-align: left;
+    }
+    h4 {
+        margin-top: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+    table {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        tr {
+            line-height: 1.75em;
+        }
+        .icon-cell {
+            width: 2rem;
+            padding-right: 0.25rem;
+            color: $turquoise;
+            text-align: center;
+        }
+    }
+    a.mfp-close.as-button {
+        position: relative;
+        width: auto;
+        height: auto;
+        margin-left: 0.375rem;
+        color: $turquoise;
+        opacity: 1;
+        &:hover {
+            color: $white-light;
+        }
+    }
+    button.mfp-close.x-button {
+        position: absolute;
+        top: -0.375rem;
+        right: -0.375rem;
+        width: 2.75rem;
+        height: 2.75rem;
+        color: $white-light;
+    }
+}
+
+/***************************/
+
+/*     10. Screenshots     */
+
+/***************************/
+
+.slider-2 {
+    padding-top: 6.875rem;
+    padding-bottom: 6.875rem;
+    background-color: $dark-gray;
+    .slider-container {
+        position: relative;
+    }
+    .swiper-container {
+        position: static;
+        width: 90%;
+        text-align: center;
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+        top: 50%;
+        width: 1.125rem;
+    }
+    .swiper-button-prev:focus,
+    .swiper-button-next:focus {
+        /* even if you can't see it chrome you can see it on mobile device */
+        outline: none;
+    }
+    .swiper-button-prev {
+        left: -0.5rem;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+        background-size: 1.125rem 1.75rem;
+    }
+    .swiper-button-next {
+        right: -0.5rem;
+        background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2028%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+        background-size: 1.125rem 1.75rem;
+    }
+}
+
+/************************/
+
+/*     11. Download     */
+
+/************************/
+
+.basic-4 {
+    padding-top: 6.5rem;
+    padding-bottom: 6.75rem;
+    background: url('images/download-background.jpg') center center no-repeat;
+    background-size: cover;
+    .text-container {
+        margin-bottom: 3.5rem;
+        text-align: center;
+    }
+    h2 {
+        margin-bottom: 1.25rem;
+    }
+    .p-large {
+        margin-bottom: 1.75rem;
+    }
+    .btn-solid-lg {
+        margin-right: 0.5rem;
+        margin-bottom: 1.25rem;
+    }
+}
+
+/**************************/
+
+/*     12. Statistics     */
+
+/**************************/
+
+.counter {
+    padding-top: 6.5rem;
+    padding-bottom: 5.375rem;
+    background-color: $dark-gray;
+    text-align: center;
+    #counter {
+        .cell {
+            display: inline-block;
+            width: 6.25rem;
+            margin-right: 1rem;
+            margin-left: 1rem;
+            margin-bottom: 2rem;
+        }
+        .counter-value {
+            color: $white-light;
+            font: 700 3.5rem/4.25rem "Montserrat", sans-serif;
+            vertical-align: middle;
+        }
+        .counter-info {
+            margin-bottom: 0;
+            color: $turquoise;
+            font: 400 0.875rem/1.25rem "Open Sans", sans-serif;
+            vertical-align: middle;
+        }
+    }
+}
+
+/***********************/
+
+/*     13. Contact     */
+
+/***********************/
+
+.form {
+    padding-top: 6.25rem;
+    padding-bottom: 5.625rem;
+    background: url('images/contact-background.jpg') center bottom no-repeat;
+    background-size: cover;
+    h2 {
+        margin-bottom: 1.125rem;
+        text-align: center;
+    }
+    .list-unstyled {
+        margin-bottom: 3.75rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        text-align: center;
+        .fas,
+        .fab {
+            margin-right: 0.5rem;
+            font-size: 0.875rem;
+            color: $turquoise;
+        }
+        .fa-phone {
+            vertical-align: 3%;
+        }
+    }
+}
+
+/**********************/
+
+/*     14. Footer     */
+
+/**********************/
+
+.footer {
+    padding-top: 5rem;
+    background-color: $dark-gray;
+    .footer-col {
+        margin-bottom: 2.25rem;
+    }
+    h4 {
+        margin-bottom: 1rem;
+    }
+    .list-unstyled {
+        .fas {
+            color: $turquoise;
+            font-size: 0.5rem;
+            line-height: 1.375rem;
+        }
+        .media-body {
+            margin-left: 0.625rem;
+        }
+    }
+    .fa-stack {
+        margin-bottom: 0.75rem;
+        margin-right: 0.5rem;
+        font-size: 1.5rem;
+        .fa-stack-1x {
+            color: $dark-gray;
+            transition: all 0.2s ease;
+        }
+        .fa-stack-2x {
+            color: $white-light;
+            transition: all 0.2s ease;
+        }
+        &:hover {
+            .fa-stack-1x {
+                color: $white-light;
+            }
+            .fa-stack-2x {
+                color: $turquoise;
+            }
+        }
+    }
+}
+
+/*************************/
+
+/*     15. Copyright     */
+
+/*************************/
+
+.copyright {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    background-color: $dark-gray;
+    text-align: center;
+    .p-small {
+        color: $white-light;
+        opacity: 0.6;
+    }
+}
+
+/**********************************/
+
+/*     16. Back To Top Button     */
+
+/**********************************/
+
+a {
+    &.back-to-top {
+        position: fixed;
+        z-index: 999;
+        right: 0.75rem;
+        bottom: 0.75rem;
+        display: none;
+        width: 2.625rem;
+        height: 2.625rem;
+        border-radius: 1.875rem;
+        background: $turquoise url("images/up-arrow.png") no-repeat center 47%;
+        background-size: 1.125rem 1.125rem;
+        text-indent: -9999px;
+    }
+    &:hover.back-to-top {
+        background-color: #36edfd;
+    }
+}
+
+/***************************/
+
+/*     17. Extra Pages     */
+
+/***************************/
+
+.ex-header {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    background: linear-gradient(to bottom right, #2c1a7e, #5557db);
+    text-align: center;
+}
+
+.ex-basic-1 {
+    padding-top: 2rem;
+    padding-bottom: 0.875rem;
+    background-color: $dark-gray;
+    .breadcrumbs {
+        margin-bottom: 1.125rem;
+        .fa {
+            margin-right: 0.5rem;
+            margin-left: 0.625rem;
+        }
+    }
+}
+
+.ex-basic-2 {
+    padding-top: 4.75rem;
+    padding-bottom: 4rem;
+    background-color: $dark-gray;
+    h3 {
+        margin-bottom: 1rem;
+    }
+    .text-container {
+        margin-bottom: 3.625rem;
+        &.last {
+            margin-bottom: 0;
+        }
+    }
+    .list-unstyled {
+        .fas {
+            color: $turquoise;
+            font-size: 0.5rem;
+            line-height: 1.375rem;
+        }
+        .media-body {
+            margin-left: 0.625rem;
+        }
+    }
+    .btn-outline-reg {
+        margin-top: 1.75rem;
+    }
+    .image-container-large {
+        margin-bottom: 4rem;
+        img {
+            border-radius: 0.25rem;
+        }
+    }
+    .image-container-small img {
+        border-radius: 0.25rem;
+    }
+    .text-container.dark-bg {
+        padding: 1.625rem 1.5rem 0.75rem 2rem;
+        background-color: #f9fafc;
+    }
+}
+
+/*****************************/
+
+/*     18. Media Queries     */
+
+/*****************************/
+
+/* Min-width width 768px */
+
+@media (min-width: 768px) {
+    /* General Styles */
+    .p-heading {
+        width: 85%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    h1 {
+        font: 700 3.25rem/3.75rem "Montserrat", sans-serif;
+    }
+    /* end of general styles */
+    /* Navigation */
+    .navbar-custom {
+        padding: 2.125rem 1.5rem 2.125rem 2rem;
+        box-shadow: none;
+        background: transparent;
+        .navbar-brand.logo-text {
+            color: $white;
+        }
+        .navbar-nav {
+            margin-top: 0;
+        }
+        .nav-item .nav-link {
+            padding: 0.25rem 0.75rem 0.25rem 0.75rem;
+            color: $white;
+            &:hover,
+            &.active {
+                color: $turquoise;
+            }
+        }
+        &.top-nav-collapse {
+            padding: 0.5rem 1.5rem 0.5rem 2rem;
+            box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
+            background-color: $primary;
+            .navbar-brand.logo-text {
+                color: $white;
+            }
+            .nav-item .nav-link {
+                color: $white;
+                &:hover,
+                &.active {
+                    color: $turquoise;
+                }
+            }
+        }
+        .dropdown-menu {
+            box-shadow: 0 0.25rem 0.375rem 0 rgba(0, 0, 0, 0.03);
+        }
+        .dropdown-item {
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+        .dropdown-items-divide-hr {
+            width: 84%;
+        }
+    }
+    /* end of navigation */
+    /* Header */
+    .header .header-content {
+        padding-top: 11rem;
+    }
+    /* end of header */
+    /* Testimonials */
+    .slider-1 {
+        .swiper-button-prev {
+            left: 1rem;
+            width: 1.375rem;
+            background-size: 1.375rem 2.125rem;
+        }
+        .swiper-button-next {
+            right: 1rem;
+            width: 1.375rem;
+            background-size: 1.375rem 2.125rem;
+        }
+    }
+    /* end of testimonials */
+    /* Features */
+    .tabs {
+        .card .card-icon {
+            width: 4.5rem;
+            height: 4.5rem;
+            .fas,
+            .far {
+                font-size: 2.25rem;
+                line-height: 4.5rem;
+            }
+        }
+        #tab-1 .card.left-pane .text-wrapper {
+            width: 85%;
+        }
+        #tab-2 {
+            img {
+                margin-bottom: 0;
+            }
+            .text-area {
+                margin-top: 0;
+            }
+            .icon-cards-area .card {
+                display: inline-block;
+                width: 44%;
+                margin-right: 2.5rem;
+                vertical-align: top;
+            }
+            div.card:nth-child(2n+2) {
+                margin-right: 0;
+            }
+        }
+        #tab-3,
+        #tab-4 {
+            .text-area {
+                margin-bottom: 0;
+            }
+            .icon-cards-area .card {
+                display: inline-block;
+                width: 44%;
+                margin-right: 2.5rem;
+                vertical-align: top;
+            }
+            div.card:nth-child(2n+2) {
+                margin-right: 0;
+            }
+            img {
+                margin-bottom: 0;
+            }
+        }
+    }
+    /* end of features */
+    /* Details Lightboxes */
+    .lightbox-basic {
+        padding: 3rem 3rem;
+    }
+    /* end of details lightboxes */
+    /* Screenshots */
+    .slider-2 {
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 1.375rem;
+            background-size: 1.375rem 2.125rem;
+        }
+    }
+    /* end of screenshots */
+    /* Contact */
+    .form .list-unstyled {
+        li {
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+        }
+        .address {
+            display: block;
+        }
+    }
+    /* end of contact */
+    /* Extra Pages */
+    .ex-header {
+        padding-top: 11rem;
+        padding-bottom: 9rem;
+    }
+    .ex-basic-2 .text-container {
+        &.dark {
+            padding: 2.5rem 3rem 2rem 3rem;
+        }
+        &.column {
+            width: 90%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+    /* end of extra pages */
+}
+
+/* end of min-width width 768px */
+
+/* Min-width width 992px */
+
+@media (min-width: 992px) {
+    /* Navigation */
+    .navbar-custom {
+        .social-icons {
+            display: block;
+            margin-left: 0.5rem;
+        }
+        .fa-stack {
+            margin-bottom: 0.1875rem;
+            margin-left: 0.375rem;
+            font-size: 0.75rem;
+        }
+        .fa-stack-2x {
+            color: $turquoise;
+            transition: all 0.2s ease;
+        }
+        .fa-stack-1x {
+            color: $white;
+            transition: all 0.2s ease;
+        }
+        .fa-stack:hover {
+            .fa-stack-2x {
+                color: $white;
+            }
+            .fa-stack-1x {
+                color: $turquoise;
+            }
+        }
+    }
+    /* end of navigation */
+    /* General Styles */
+    .p-heading {
+        width: 65%;
+    }
+    /* end of general styles */
+    /* Header */
+    .header {
+        .header-content {
+            padding-top: 13rem;
+            padding-bottom: 10rem;
+            text-align: left;
+        }
+        .text-container {
+            margin-top: 6.5rem;
+        }
+    }
+    /* end of header */
+    /* Features */
+    .tabs {
+        .card-body {
+            padding: 1rem 0 1.5rem 0;
+        }
+        #tab-1 {
+            .card {
+                &.left-pane {
+                    text-align: right;
+                    .text-wrapper {
+                        width: 68%;
+                    }
+                }
+                &.right-pane .text-wrapper {
+                    width: 68%;
+                }
+                &.left-pane .card-icon {
+                    float: none;
+                    margin-right: 0;
+                    margin-left: 1rem;
+                }
+            }
+            img {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+        #tab-2 .icon-cards-area {
+            margin-top: 2.25rem;
+            .card {
+                width: 45%;
+                margin-right: 3.5rem;
+                p {
+                    margin-bottom: 0.5rem;
+                }
+            }
+        }
+        #tab-3 .icon-cards-area .card {
+            width: 45%;
+            margin-right: 3.5rem;
+            p {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+    /* end of features */
+    /* Video */
+    .basic-1 .image-container {
+        max-width: 53.125rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    /* end of video */
+    /* Details 1 */
+    .basic-2 {
+        img {
+            margin-bottom: 0;
+        }
+        .text-container {
+            margin-top: 2.625rem;
+        }
+    }
+    /* end of details 1 */
+    /* Details 2 */
+    .basic-3 .text-container {
+        margin-top: 2.5rem;
+        margin-bottom: 0;
+    }
+    /* end of details 2 */
+    /* Details Lightboxes */
+    .lightbox-basic {
+        img {
+            margin-bottom: 0;
+            margin-left: 0;
+        }
+        h3 {
+            margin-top: 0.25rem;
+        }
+    }
+    /* end of details lightboxes */
+    /* Screenshots */
+    .slider-2 .swiper-container {
+        width: 92%;
+    }
+    /* end of screenshots */
+    /* Download */
+    .basic-4 {
+        padding-top: 6.75rem;
+        .text-container {
+            margin-top: 7rem;
+            margin-bottom: 0;
+            text-align: left;
+        }
+    }
+    /* end of download */
+    /* Statistics */
+    .counter {
+        padding-top: 6rem;
+        padding-bottom: 4.5rem;
+        #counter {
+            .cell {
+                width: 8rem;
+                margin-right: 2.5rem;
+                margin-left: 2.5rem;
+            }
+            .counter-value {
+                font: 700 4.25rem/4.5rem "Montserrat", sans-serif;
+            }
+        }
+    }
+    /* end of statistics */
+    /* Extra Pages */
+    .ex-header h1 {
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .ex-basic-2 {
+        padding-bottom: 5rem;
+        .text-container.column {
+            margin-bottom: 0;
+        }
+    }
+    /* end of extra pages */
+}
+
+/* end of min-width width 992px */
+
+/* Min-width width 1200px */
+
+@media (min-width: 1200px) {
+    /* Navigation */
+    .navbar-custom {
+        padding: 2.125rem 5rem 2.125rem 5rem;
+        &.top-nav-collapse {
+            padding: 0.5rem 5rem 0.5rem 5rem;
+        }
+    }
+    /* end of navigation */
+    /* General Styles */
+    .p-heading {
+        width: 44%;
+    }
+    /* end of general styles */
+    /* Header */
+    .header {
+        .text-container {
+            margin-top: 7.5rem;
+            margin-left: 2.5rem;
+        }
+        .image-container {
+            margin-left: 3rem;
+        }
+    }
+    /* end of header */
+    /* Features */
+    .tabs {
+        padding-bottom: 6.5rem;
+        #tab-1 {
+            .card {
+                &.first {
+                    margin-top: 4.25rem;
+                }
+                margin-bottom: 0.75rem;
+                &.left-pane .text-wrapper,
+                &.right-pane .text-wrapper {
+                    width: 73%;
+                }
+            }
+            img {
+                margin-top: 0;
+            }
+        }
+        #tab-2 {
+            .container {
+                padding-right: 2.5rem;
+                padding-left: 2.5rem;
+            }
+            .text-area {
+                margin-top: 1.5rem;
+                margin-right: 1rem;
+                margin-left: 1rem;
+            }
+            .icon-cards-area {
+                margin-right: 1rem;
+                margin-left: 1rem;
+                .card {
+                    margin-right: 3.875rem;
+                }
+            }
+        }
+        #tab-3 {
+            .container {
+                padding-right: 2.5rem;
+                padding-left: 2.5rem;
+            }
+            .icon-cards-area {
+                margin-top: 2rem;
+                margin-left: 1rem;
+                .card {
+                    margin-right: 3.875rem;
+                }
+            }
+            .text-area {
+                margin-right: 1.5rem;
+                margin-left: 1rem;
+            }
+        }
+    }
+    /* end of features */
+    /* Details 1 */
+    .basic-2 .text-container {
+        margin-top: 4.5rem;
+        margin-left: 4rem;
+        margin-right: 1.5rem;
+    }
+    /* end of details 1 */
+    /* Details 2 */
+    .basic-3 .text-container {
+        margin-top: 4.5rem;
+        margin-right: 3.5rem;
+        margin-left: 2rem;
+    }
+    /* end of details 2 */
+    /* Download */
+    .basic-4 {
+        .text-container {
+            margin-top: 11rem;
+        }
+        .image-container {
+            margin-left: 3rem;
+        }
+    }
+    /* end of download */
+    /* Footer */
+    .footer .footer-col {
+        width: 90%;
+        &.middle {
+            margin-right: auto;
+            margin-left: auto;
+        }
+        &.last {
+            margin-right: 0;
+            margin-left: auto;
+        }
+    }
+    /* end of footer */
+    /* Extra Pages */
+    .ex-header h1 {
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .ex-basic-2 {
+        .form-container,
+        .image-container-small {
+            margin-left: 1.75rem;
+        }
+    }
+    /* end of extra pages */
+}
+
+// RESPONSIVE
+@import 'responsive';

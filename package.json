@@ -1,0 +1,44 @@
+{
+  "name": "sandbox_theme",
+  "version": "1.0.0",
+  "description": "Sandbox Theme Seed for Wordpress Developments",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kangulo/tusatelit.git"
+  },
+  "keywords": [
+    "kangulo",
+    "wordpress",
+    "theme",
+    "starter",
+    "seed",
+    "sandbox"
+  ],
+  "author": "Kevin Angulo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kangulo/tusatelit/issues"
+  },
+  "homepage": "https://github.com/kangulo/tusatelit#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "jshint": "^2.10.3",
+    "jshint-stylish": "^2.2.1",
+    "node-sass": "^4.13.0",
+    "run-sequence": "^2.2.1"
+  },
+  "dependencies": {
+    "npm": "^6.13.2",
+    "path": "^0.12.7"
+  }
+}
