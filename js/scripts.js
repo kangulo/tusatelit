@@ -3,8 +3,6 @@
    Created: Mar 2019
    Description: Custom JS file
 */
-
-
 (function ($) {
     "use strict";
 
@@ -306,10 +304,11 @@
     }
 
     function csubmitMSG(valid, msg) {
+        var msgClasses;
         if (valid) {
-            var msgClasses = "h3 text-center tada animated";
+            msgClasses = "h3 text-center tada animated";
         } else {
-            var msgClasses = "h3 text-center";
+            msgClasses = "h3 text-center";
         }
         $("#cmsgSubmit").removeClass().addClass(msgClasses).text(msg);
     }
@@ -363,10 +362,11 @@
     }
 
     function psubmitMSG(valid, msg) {
+        var msgClasses;
         if (valid) {
-            var msgClasses = "h3 text-center tada animated";
+            msgClasses = "h3 text-center tada animated";
         } else {
-            var msgClasses = "h3 text-center";
+            msgClasses = "h3 text-center";
         }
         $("#pmsgSubmit").removeClass().addClass(msgClasses).text(msg);
     }

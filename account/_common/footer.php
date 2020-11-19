@@ -562,7 +562,164 @@
 	        }, 350);
 	    });
 
-	</script>
 
+	</script>
+	<script>
+		// Disable auto discover for all elements:
+		Dropzone.autoDiscover = false;
+		// Prevent Dropzone from auto discovering this element:
+		Dropzone.options.myDropZone = false;
+		// This is useful when you want to create the
+		// Dropzone programmatically later
+
+		Dropzone.options.myDropZone = { 
+		  // The camelized version of the ID of the form element
+
+		  // The configuration we've talked about above
+		  addRemoveLinks: true,
+		  url: ajax.ajax_url,
+		  //autoProcessQueue: false,
+		  uploadMultiple: true,
+		  parallelUploads: 100,
+		  maxFiles: 100,
+		  acceptedFiles: "image/*",
+
+		  // The setting up of the dropzone
+		  init: function() {
+		    var myDropzone = this;
+
+		    // First change the button to actually tell Dropzone to process the queue.
+		    $(".btn-upload-photo").on("click", function(e) {
+				// Make sure that the form isn't actually being sent.
+				e.preventDefault();
+				e.stopPropagation();
+				myDropzone.processQueue();
+		    });
+
+		    $.getJSON(ajax.ajax_url + '?action=get_photo_ajax', function(data) {
+ 
+	            $.each(data, function(key,value){
+	                 
+	                var mockFile = { id: key, name: value.title, size: value.size };
+	                 
+	                myDropzone.options.addedfile.call(myDropzone, mockFile);
+	 
+	                myDropzone.options.thumbnail.call(myDropzone, mockFile, value.thumb_url);
+
+	                myDropzone.emit('complete', mockFile);
+	                 
+	            });
+	             
+	        });
+
+	        
+
+		    this.on("removedfile", function(file) { 
+		    	var action     = 'remove_photo_ajax';
+            	var ajax_nonce = '<?php echo wp_create_nonce('remove-photo-ajax-nonce'); ?>';
+		    	//file.status = Dropzone.SUCCESS;
+	            $.ajax({
+	                url: ajax.ajax_url,
+	                type: "POST",
+	                data:{
+	                    action: action,
+	                    photo_id: file.id,
+	                    security: ajax_nonce,                
+	                },
+	                success: function(data) { 
+                    
+	                    var resp = jQuery.parseJSON(data); 
+	                    if (resp.success){
+	                        swal.fire({
+	                            type: 'success',
+	                            title: resp.title,
+	                            html: resp.message,
+	                            onClose: function(){ 
+		                            if (resp.redirect_url != null ){ 
+		                                window.location = resp.redirect_url;
+		                            }
+		                        }
+	                                             
+	                        });           
+	                    }
+	                    else
+	                    {
+	                        swal.fire({
+	                            type: 'error',
+	                            title: resp.title,
+	                            html: resp.message,
+	                            timer: (resp.autoclose) ? 3000 : null,                          
+	                        });
+	                    }
+	                }
+		        });
+		    });
+
+		    // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
+		    // of the sending event because uploadMultiple is set to true.
+		    this.on("sendingmultiple", function(data, xhr, formData) {
+		      // Gets triggered when the form is actually being sent.
+		      // Hide the success button or the complete form.
+		      // Append all form inputs to the formData Dropzone will POST
+	            $('.btn-upload-photo').attr("disabled", true);
+                jQuery.LoadingOverlay("show");
+	            let myForm = document.getElementById('upload-photos-form');
+	            var data = $('#upload-photos-form').serializeArray();
+	            $.each(data, function (key, el) {
+	                formData.append(el.name, el.value);
+	            });
+		    });
+
+		    this.on("successmultiple", function(files, data) {
+
+		      // myDropzone.removeAllFiles();
+		      // Gets triggered when the files have successfully been sent.
+		      var response = jQuery.parseJSON(data); 
+		      
+		      	console.log("successmultiple",response);
+
+		      	$.each(files, function(key,value){
+		      		var key_files = key;
+		      		var value_files = value;
+	                 
+		      		$.each(response.thumb_url, function(key,value){
+		      			if ( value.title == value_files.name.replace(/\.[^/.]+$/, "") && value.size == value_files.size )
+		      				files[key_files].id = key;
+		      		});
+	                 
+	            });
+
+		        jQuery.LoadingOverlay("hide");
+		      	var resp = jQuery.parseJSON(response); 
+				if (resp.success)
+				{
+
+				    swal.fire({
+				        type: 'success',
+				        title: resp.title,
+				        //showConfirmButton: false,
+				        html: resp.message,                      
+				    });
+
+				    
+
+				}
+				else
+				{
+				    swal.fire({
+				        type: 'error',
+				        title: resp.title,
+				        html: resp.message,
+				        timer: (resp.autoclose) ? 3000 : null,                          
+				    });
+				    return false;
+				}
+		    });
+		    
+		  }
+		}
+
+	    var dropzone = $("div#myDropZone").dropzone();
+	</script>
 	</body>
 </html>

@@ -259,35 +259,21 @@
 										</p>
 									</form>
 
-									<div class="listing-item mb-5" id="photos">
-										<h6 class="tab-title tab-title-gray"><i class="fas fa-camera"></i>&nbsp;Photos</h6>
-										<div class="listing-photos row">
-											<?php 
-												//$photos = $store->getPhotos();
-											?>
-											<?php //if( $photos ):?>
-												<?php //foreach( $photos as $photo ): ?>
-												<div class="photo-wrapper popup-gallery" id="photo_<?php echo $photo['ID']; ?>">
-													<div class="inner overlay-wrapper radius-12 cover-bg" style="background-image: url('<?php echo $photo['sizes']['thumbnail']; ?>');">
-														<div class="overlay-1 radius-12 align-center-v">
-															<div>
-																<button class="i-2"><i class="icon-bin delete_photo" data-photo_id="<?php echo $photo['ID']; ?>"></i></button>
-																<span>Delete</span>
-															</div>
-															<div>
-																<a href="<?php echo $photo['url']; ?>" class="i-2 gallery"><i class="icon-zoom"></i></a>
-																<span>Zoom</span>
-															</div>
-														</div>
-													</div><!--photo-wrapper-->
-												</div>
-												<?php //endforeach; ?>
-											<?php //endif;?>
-											<div class="photo-wrapper">
-												<button class="photo-upload box-shadow radius-12"><i class="icon-photo"></i></button>
+									<form id="upload-photos-form" method="post" enctype="multipart/form-data">
+										<div class="listing-item mb-5" id="photos">
+											<h6 class="tab-title tab-title-gray"><i class="fas fa-camera"></i>&nbsp;Photos</h6>
+											<div class="listing-photos row">
+												<div class="fallback dropzone" id="myDropZone">
+							                    	<div class="dz-message"><i class="icon icon-camera">&nbsp;</i> Drop files here or click to upload.</div>
+							                    </div>
 											</div>
-										</div>
-									</div><!--listing-item-->
+										</div><!--listing-item-->
+										<input type="hidden" name="action" value="upload_photo_ajax">
+                						<input type="hidden" name="security" value="<?php echo wp_create_nonce('upload-photo-ajax-nonce'); ?>">
+                						<p class="text-right">
+											<button type="button" class="button btn-upload-photo"><?php esc_html_e( 'Save changes', 'woocommerce' ); ?></button>
+										</p>
+									</form>
 
 									<div class="listing-item mb-5" id="favorites">
 										<h6 class="tab-title tab-title-gray"><i class="fas fa-star"></i>&nbsp;Favorites</h6>

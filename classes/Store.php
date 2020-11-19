@@ -312,6 +312,133 @@ class Store
     }
 
     /**
+     * Get user photos
+     * @return array photos
+     */
+    public function getPhotos()
+    {
+        $results = [];
+        try
+        {
+            $count = 0;
+            $array = get_field('gallery', $this->ID);
+
+            foreach ($array as $key => $value ) {
+                $results[$value['ID']]['title'] = $value['title'];
+                $results[$value['ID']]['size'] = $value['filesize'];
+                $results[$value['ID']]['thumb_url'] = $value['sizes']['thumbnail'];
+                $results[$value['ID']]['large'] = $value['sizes']['large'];
+            }
+            $this->response['success'] = true;
+            $this->response['title']   = "Image Uploaded!";
+            $this->response['message'] = "Thanks for uploading a photo to your store profile!";
+            $this->response['thumb_url']    = $results;
+            return $results;
+        }
+        catch (Exception $exc)
+        {
+            $this->response['success'] = true;
+            $this->response['title']   = "Image Uploaded!";
+            $this->response['message'] = "Thanks for uploading a photo to your store profile!";
+            $this->response['thumb_url']    = $results;
+            return $this->response;
+        } 
+    }
+
+    /**
+     * Add user photos
+     * @return int photo id added
+     */
+    public function addPhoto( $data = array(), $files = array() )
+    {
+        $results = [];
+        if (!empty($_FILES)) {
+
+            $files = $_FILES["file"];$x=0;
+            foreach ($files['name'] as $key => $value) {
+                if ($files['name'][$key]) {
+                    $x++;
+                    $file = array(
+                        'name' => $files['name'][$key],
+                        'type' => $files['type'][$key],
+                        'tmp_name' => $files['tmp_name'][$key],
+                        'error' => $files['error'][$key],
+                        'size' => $files['size'][$key]
+                    );
+                    $_FILES = array("upload_file" => $file);
+                    $attach_id = media_handle_upload("upload_file", 0);
+
+                    if (is_wp_error($attach_id)) {
+                        // There was an error uploading the image.
+                        $this->response['success'] = false;
+                        $this->response['title']   = "Error";
+                        $this->response['message'] =  $attach_id->get_error_message();
+                    } else {
+                        // The image was uploaded successfully!
+                        
+                        $array = get_field('gallery', $this->ID, false);
+
+                        $array[] = $attach_id;
+
+                        $thumb_url = wp_get_attachment_image_src($attach_id,'thumbnail');
+
+                        $url = wp_get_attachment_url( $attach_id );
+
+                        update_field('gallery', $array, $this->ID );
+                        // do something with the file info...
+
+
+                        $array = get_field('gallery', $this->ID);
+
+                        foreach ($array as $key => $value ) {
+                            $results[$value['ID']]['title'] = $value['title'];
+                            $results[$value['ID']]['size'] = $value['filesize'];
+                            $results[$value['ID']]['thumb_url'] = $value['sizes']['thumbnail'];
+                            $results[$value['ID']]['large'] = $value['sizes']['large'];
+                        }
+
+                        $this->response['success'] = true;
+                        $this->response['title']   = "Image Uploaded!";
+                        $this->response['message'] = "Thanks for uploading a photo to your store profile!";
+                        $this->response['thumb_url']    = $results;
+                    }
+                }
+            }
+        }
+        else
+        {
+            // do something with the file info...
+            $this->response['success'] = false;
+            $this->response['title']   = "Ops! An error occurred";
+            $this->response['message'] = "No file or image to attach";
+        }
+        return $this->response;
+        
+    }
+
+    /**
+     * Remove user photos
+     * @return array photos
+     */
+    public function removePhotos( $photo_id )
+    {
+        if ($deleted = wp_delete_attachment((int) $photo_id, true ))
+        {
+            $this->response['success'] = true;
+            $this->response['title']   = "Image Removed!";
+            $this->response['message'] = "";
+            $this->response['deleted']    = $deleted;
+        }
+        else
+        {
+            $this->response['success'] = false;
+            $this->response['title']   = "Ops! An error occurred";
+            $this->response['message'] = "No file or image to attach";
+        }
+        return $this->response;
+    }
+
+    /**
      * Save Store information details
      * @param  int $store_id 
      * @return void

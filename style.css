@@ -3,7 +3,7 @@
 Theme Name: Tusatelit Wordpress Theme
 Author: Kevin Angulo
 Author URI: https://www.kevinangulo.com/
-Version: 1.0.1
+Version: 1.0.2
 Text Domain: tusatelit
 */
 /***********************************
@@ -322,6 +322,12 @@ a.white {
   -webkit-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
+}
+
+.dropzone {
+  width: 100%;
+  border-radius: 12px;
+  border: 2px dotted #CCC;
 }
 
 /* IE10+ hack to solve lower label text position compared to the rest of the browsers */
