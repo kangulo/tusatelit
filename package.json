@@ -34,7 +34,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "jshint": "^2.10.3",
     "jshint-stylish": "^2.2.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "run-sequence": "^2.2.1"
   },
   "dependencies": {
